@@ -242,17 +242,18 @@ public class DynamicStarMapActivity extends Activity implements OnSharedPreferen
 
   @Override
   public boolean onKeyDown(int keyCode, KeyEvent event) {
+    Log.d(TAG, "Key: " + event);
     switch (keyCode) {
         // Handle tap events on the Glass touchpad.
       case KeyEvent.KEYCODE_DPAD_CENTER:
       case KeyEvent.KEYCODE_ENTER:
-          Log.d(TAG, "Settings");
-          Analytics.getInstance(this).trackEvent(Analytics.USER_ACTION_CATEGORY,
-              Analytics.MENU_ITEM, Analytics.SETTINGS_OPENED_LABEL, 1);
-          startActivity(new Intent(this, EditSettingsActivity.class));      	
+          //Log.d(TAG, "Settings");
+          //Analytics.getInstance(this).trackEvent(Analytics.USER_ACTION_CATEGORY,
+          //    Analytics.MENU_ITEM, Analytics.SETTINGS_OPENED_LABEL, 1);
+          //startActivity(new Intent(this, EditSettingsActivity.class));
+        openOptionsMenu();  
         return true;
       default:
-        Log.d(TAG, "Key: " + event);
         return super.onKeyDown(keyCode, event);
     }
   }
